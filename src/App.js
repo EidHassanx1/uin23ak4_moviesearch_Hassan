@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import SearchBar from './components/SearchBar';
+import MovieList from './components/MovieList';
+import Placeholder from './components/Placeholder';
+import Search from './components/Search';
+
 
 function App() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSearch(searchString) {
+    setLoading(true);
+    const API_KEY = '4fbb46f2';
+    const response = await fetch(
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchString}`
+    );
+    const data = await response.json();
+    setLoading(false);
+    if (data.Search) {
+      setMovies(data.Search);
+    } else {
+      setMovies([]);
+    }
+  }
+
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar onSearch={handleSearch} />
+      {loading ? (
+        <Placeholder />
+      ) : movies.length > 0 ? (
+        <MovieList movies={movies} />
+      ) : (
+        <p>No results found.</p>
+      )}
+      <Search />
     </div>
+      
   );
 }
 
