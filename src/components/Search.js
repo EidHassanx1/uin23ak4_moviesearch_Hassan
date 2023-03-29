@@ -20,16 +20,25 @@ export default function Search() {
   }, []);
 
   return (
-    <div>
-
-      {movies && movies.map((movie) => (
+    <div className='james-bond'>
+  {movies && movies.map((movie) => {
+    if (movie.Title.includes('James Bond')) {
+      return (
         <div className='Search' key={movie.imdbID}>
           <h2>{movie.Title}</h2>
-          <p>{movie.Year}</p>
           <img src={movie.Poster} alt={movie.Title} />
+          <p>Year: {movie.Year}</p>
+          <p>Director: {movie.Director}</p>
+          <p>Actors: {movie.Actors}</p>
+          <p>Genre: {movie.Genre}</p>
+          {movie.Awards && <p>Awards: {movie.Awards}</p>}
+          
         </div>
-      ))}
+      );
+    }
+    return null;
+  })}
+</div>
 
-    </div>
   );
 }

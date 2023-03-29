@@ -1,5 +1,5 @@
 body {
-  background-color: lime;
+  background-color: darkslategray;
 }
 
 .App {
@@ -7,16 +7,29 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: Arial, sans-serif;
-  color: #b90303;
+  color: #ffffff;
   margin: 50px 0;
 }
 
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.james-bond {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
   margin: 30px 0;
 }
+
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
 
 .movie {
   margin: 20px;
@@ -69,13 +82,14 @@ body {
 }
 
 .SearchBar input {
-  padding: 10px;
+  padding: 15px;
   border: none;
   border-radius: 5px 0 0 5px;
-  width: 300px;
-  font-size: 18px;
+  width: 350px;
+  font-size: 60px;
   outline: none;
 }
+
 
 .SearchBar button {
   background-color: #007bff;
