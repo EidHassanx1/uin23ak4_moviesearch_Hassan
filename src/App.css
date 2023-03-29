@@ -1,38 +1,101 @@
+body {
+  background-color: lime;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: Arial, sans-serif;
+  color: #b90303;
+  margin: 50px 0;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 30px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.movie {
+  margin: 20px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movie img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0px 0px 5px rgb(217, 255, 0);
+}
+
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 0;
+}
+
+.Search h2 {
+  margin: 10px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.Search p {
+  margin: 10px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.Search img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0px 0px 5px rgb(217, 255, 0);
+}
+
+.SearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.SearchBar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchBar input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+  font-size: 18px;
+  outline: none;
+}
+
+.SearchBar button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.SearchBar button:hover {
+  background-color: #0069d9;
+}
+
+.Placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
 }

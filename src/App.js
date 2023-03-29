@@ -9,6 +9,9 @@ import Search from './components/Search';
 function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [setSearchSuccessful] = useState(true);
+  let searchString = '';
+
 
   async function handleSearch(searchString) {
     setLoading(true);
@@ -20,26 +23,29 @@ function App() {
     setLoading(false);
     if (data.Search) {
       setMovies(data.Search);
+      setSearchSuccessful(true);
     } else {
       setMovies([]);
+      setSearchSuccessful(false);
     }
   }
 
   return (
-    
     <div className="App">
       <SearchBar onSearch={handleSearch} />
-      {loading ? (
-        <Placeholder />
-      ) : movies.length > 0 ? (
+      {movies.length > 0 ? (
         <MovieList movies={movies} />
+      ) : loading ? (
+        <Placeholder />
+      ) : searchString.trim() === '' ? (
+        <Search />
       ) : (
         <p>No results found.</p>
       )}
-      <Search />
     </div>
-      
   );
+  
 }
+
 
 export default App;
