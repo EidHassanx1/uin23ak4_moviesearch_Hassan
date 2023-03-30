@@ -32,6 +32,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Eidflix</h1>
       <SearchBar onSearch={handleSearch} />
       {movies.length > 0 ? (
         <MovieList movies={movies} />
